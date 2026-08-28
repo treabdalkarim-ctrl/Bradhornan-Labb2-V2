@@ -13,12 +13,19 @@ Syftet är att hantera spel, med funktioner för att lista, lägga till och ta b
 
 ## Projektstruktur
 labb2/
+
 ├── Data/                # AppDbContext + EF-konfiguration
+
 ├── Domain/              # Modeller (Game, Member, Event, Registration)
+
 ├── Services/            # GameService för databasoperationer
+
 ├── ViewModels/          # GameListViewModel (MVVM)
+
 ├── Views/               # GameListView.xaml (GUI)
+
 ├── App.xaml             # Startkonfiguration
+
 └── App.xaml.cs          # OnStartup → öppnar GameListView
 
 Code:
