@@ -6,28 +6,24 @@ namespace labb2.Services
 {
     public class GameService
     {
-        private readonly AppDbContext _context;
-
-        public GameService(AppDbContext context)
-        {
-            _context = context;
-        }
-
         public async Task<List<Game>> GetAllAsync()
         {
-            return await _context.Games.ToListAsync();
+            using var db = new AppDbContext();
+            return await db.Games.ToListAsync();
         }
 
         public async Task AddAsync(Game game)
         {
-            _context.Games.Add(game);
-            await _context.SaveChangesAsync();
+            using var db = new AppDbContext();
+            db.Games.Add(game);
+            await db.SaveChangesAsync();
         }
 
         public async Task DeleteAsync(Game game)
         {
-            _context.Games.Remove(game);
-            await _context.SaveChangesAsync();
+            using var db = new AppDbContext();
+            db.Games.Remove(game);
+            await db.SaveChangesAsync();
         }
     }
 }

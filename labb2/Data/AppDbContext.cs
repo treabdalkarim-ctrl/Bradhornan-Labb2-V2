@@ -12,21 +12,43 @@ namespace labb2.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=BradhornanDB;Trusted_Connection=True;");
+            options.UseSqlite("Data Source=Bradhornan.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Member>().HasData(
-                new Member { Id = 1, Name = "Anna Andersson", Email = "anna@mail.com", IsActive = true, JoinedDate = DateTime.Now.AddYears(-1) }
-            );
+        new Member
+        {
+            Id = 1,
+            Name = "Anna Andersson",
+            Email = "anna@mail.com",
+            IsActive = true,
+            JoinedDate = new DateTime(2023, 5, 10)   // fast datum
+        }
+    );
 
             modelBuilder.Entity<Game>().HasData(
-                new Game { Id = 1, Title = "Catan", Category = "Strategi", MinPlayers = 3, MaxPlayers = 4, PlayTimeMinutes = 90 }
+                new Game
+                {
+                    Id = 1,
+                    Title = "Catan",
+                    Category = "Strategi",
+                    MinPlayers = 3,
+                    MaxPlayers = 4,
+                    PlayTimeMinutes = 90
+                }
             );
 
             modelBuilder.Entity<Event>().HasData(
-                new Event { Id = 1, Title = "Strategikväll", Date = DateTime.Now.AddDays(7), Location = "Föreningslokalen", MaxParticipants = 10 }
+                new Event
+                {
+                    Id = 1,
+                    Title = "Strategikväll",
+                    Date = new DateTime(2026, 10, 10),       // fast datum
+                    Location = "Föreningslokalen",
+                    MaxParticipants = 10
+                }
             );
         }
     }

@@ -1,5 +1,4 @@
-﻿using labb2.Data;
-using labb2.Services;
+﻿using labb2.Services;
 using labb2.ViewModels;
 using System.Windows;
 
@@ -11,8 +10,7 @@ namespace labb2.Views
         {
             InitializeComponent();
 
-            var context = new AppDbContext();
-            var service = new GameService(context);
+            var service = new GameService();
             DataContext = new GameListViewModel(service);
         }
     }
