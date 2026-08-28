@@ -28,7 +28,6 @@ labb2/
 
 └── App.xaml.cs          # OnStartup → öppnar GameListView
 
-Code:
 ## Tekniker
 - C#
 - WPF
